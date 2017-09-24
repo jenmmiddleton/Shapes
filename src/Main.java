@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -21,11 +24,19 @@ public class Main {
         }
         System.out.println("Shape Area Sum is correct: " + (areaSum == 703));
 
+        shapes.stream()
+                .map(s -> Math.round(s.getArea()))
+                .forEach(shapeArea -> System.out.println(shapeArea));
+
         int perimeterSum = 0;
         System.out.println();
         for(Shape shape : shapes) {
             perimeterSum += shape.getPerimeter();
         }
         System.out.println("Shape Perimeter Sum is correct: " + (perimeterSum == 211));
+
+        shapes.stream()
+                .map(s -> Math.round(s.getPerimeter()))
+                .forEach(shapePerim -> System.out.println(shapePerim));
     }
 }
